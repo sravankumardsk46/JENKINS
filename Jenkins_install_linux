@@ -67,6 +67,13 @@ vi /etc/ssh/sshd_config
 #PasswordAuthentication yes    ## if there is no can mention YES#
 
 service sshd restart
+or
+sudo systemctl restart ssh.service
+sudo systemctl start ssh.service
+sudo systemctl start ssh.service
+sudo systemctl status ssh.service
+
+
 
 
 
