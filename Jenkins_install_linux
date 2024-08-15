@@ -73,6 +73,10 @@ sudo systemctl start ssh.service
 sudo systemctl start ssh.service
 sudo systemctl status ssh.service
 
+no i am using /tmp file if u vant create new one
+cd /tmp
+
+
 
 
 
