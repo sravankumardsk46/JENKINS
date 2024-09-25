@@ -32,4 +32,5 @@ default all
    27  java -jar target/*.war
    28  port : 8090
 http://<your-server-ip>:8090/springdemo
+http://<your-server-ip>:8080       # this is jenkins work this port
 ####################### ok works ############################
