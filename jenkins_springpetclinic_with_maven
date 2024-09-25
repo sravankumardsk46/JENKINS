@@ -1,1 +1,5 @@
-
+ec2 instance create ubuntu os
+t2.medium
+default all
+apt update
+java -version
