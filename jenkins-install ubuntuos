@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# update system
+sudo apt update -y
+
+# install java
+sudo apt install fontconfig openjdk-17-jre -y
+
+# install git and maven
+sudo apt install git maven -y
+
+# install jenkins key
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+# add jenkins repository
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+https://pkg.jenkins.io/debian-stable binary/" | \
+sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+# update again
+sudo apt update -y
+
+# install jenkins
+sudo apt install jenkins -y
+
+# start jenkins
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+
+# go to home directory
+cd /home/ubuntu
+
+# clone spring boot project
+git clone https://github.com/sravankumardsk46/maven-new-springboot.git
+
+# go to project folder
+cd maven-new-springboot
+
+# give execute permission
+chmod +x mvnw
+
+# build project
+./mvnw package
+
+# run spring boot application
+nohup java -jar target/Springdemo-0.0.1-SNAPSHOT.war > app.log 2>&1 &
